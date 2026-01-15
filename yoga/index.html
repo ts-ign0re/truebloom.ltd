@@ -113,7 +113,7 @@
                     <p class="text-gray-500 text-sm mb-8 leading-relaxed">
                         Individual attention, customized sequences, and detailed guidance for your unique practice.
                     </p>
-                    <a href="#" class="block w-full text-center py-3 bg-dark text-white font-medium rounded-full hover:bg-gray-800 transition-colors" data-payment="personal">
+                    <a href="#" class="block w-full text-center py-3 bg-dark text-white font-medium rounded-full hover:bg-gray-800 transition-colors email-link" data-u="yoga" data-d="truebloom.ltd" data-s="Personal Session Booking" data-b="Hi!%0A%0AI would like to book a Personal Session (€80, 60 min).%0A%0APreferred date/time:%0A%0AThank you!">
                         Book & Pay
                     </a>
                 </div>
@@ -126,7 +126,7 @@
                     <p class="text-gray-500 text-sm mb-8 leading-relaxed">
                         Practice in a supportive community. Small groups ensure everyone receives attention.
                     </p>
-                    <a href="#" class="block w-full text-center py-3 bg-dark text-white font-medium rounded-full hover:bg-gray-800 transition-colors" data-payment="group">
+                    <a href="#" class="block w-full text-center py-3 bg-dark text-white font-medium rounded-full hover:bg-gray-800 transition-colors email-link" data-u="yoga" data-d="truebloom.ltd" data-s="Group Class Booking" data-b="Hi!%0A%0AI would like to book a Group Class (€25, 75 min).%0A%0APreferred date/time:%0A%0AThank you!">
                         Book & Pay
                     </a>
                 </div>
@@ -139,7 +139,7 @@
                     <p class="text-gray-400 text-sm mb-8 leading-relaxed">
                         Commit to your practice with a package deal. Valid for 3 months from purchase.
                     </p>
-                    <a href="#" class="block w-full text-center py-3 bg-white text-dark font-medium rounded-full hover:bg-gray-100 transition-colors" data-payment="package">
+                    <a href="#" class="block w-full text-center py-3 bg-white text-dark font-medium rounded-full hover:bg-gray-100 transition-colors email-link" data-u="yoga" data-d="truebloom.ltd" data-s="5-Session Package Booking" data-b="Hi!%0A%0AI would like to purchase the 5-Session Package (€360).%0A%0AThank you!">
                         Book & Pay
                     </a>
                 </div>
@@ -219,8 +219,12 @@
                 const u = this.dataset.u;
                 const d = this.dataset.d;
                 const s = this.dataset.s;
+                const b = this.dataset.b;
                 let href = 'mailto:' + u + '@' + d;
-                if (s) href += '?subject=' + s;
+                const params = [];
+                if (s) params.push('subject=' + s);
+                if (b) params.push('body=' + b);
+                if (params.length) href += '?' + params.join('&');
                 window.location.href = href;
             });
         });
