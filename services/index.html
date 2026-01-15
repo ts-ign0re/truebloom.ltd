@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Development — TrueBloom Ltd</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0a0a',
+                        light: '#fafafa',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'system-ui', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', system-ui, sans-serif; }
+        .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+    </style>
+</head>
+<body class="bg-light text-dark min-h-screen antialiased">
+
+    <!-- Header -->
+    <header class="w-full px-6 md:px-12 lg:px-20 py-8">
+        <div class="max-w-7xl mx-auto">
+            <a href="../" class="inline-flex items-center text-sm text-gray-500 hover:text-dark transition-colors py-2 pr-4 -ml-2 pl-2 rounded-lg hover:bg-gray-100">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                TrueBloom
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pt-8 pb-16 md:pt-12 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium mb-6">Custom Development</h1>
+            <p class="text-xl md:text-2xl text-gray-500 leading-relaxed max-w-3xl">
+                From idea to production. We build web platforms, mobile apps, and scalable backend systems with modern technologies.
+            </p>
+        </div>
+    </section>
+
+    <!-- What We Do -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-12">What We Build</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
+                <div>
+                    <h3 class="font-medium text-lg mb-3">iOS Applications</h3>
+                    <p class="text-gray-500 leading-relaxed">Native Swift & SwiftUI apps with beautiful UI, smooth animations, and App Store optimization.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-lg mb-3">Web Platforms</h3>
+                    <p class="text-gray-500 leading-relaxed">React SPAs, admin dashboards, CRM systems. TypeScript-first with modern tooling.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-lg mb-3">Backend Systems</h3>
+                    <p class="text-gray-500 leading-relaxed">Node.js APIs, PostgreSQL databases, event sourcing, multi-tenant architectures.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-lg mb-3">Microservices</h3>
+                    <p class="text-gray-500 leading-relaxed">Distributed systems with Kafka, event-driven architecture, and domain separation.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-lg mb-3">DevOps & Infrastructure</h3>
+                    <p class="text-gray-500 leading-relaxed">Kubernetes deployments, Docker containers, CI/CD pipelines, cloud infrastructure.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-lg mb-3">System Design</h3>
+                    <p class="text-gray-500 leading-relaxed">Architecture consulting, technical audits, scaling strategies, and performance optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-12">Tech Stack</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="font-medium mb-4">Mobile</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">Swift</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">SwiftUI</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">UIKit</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">Core Data</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">Metal</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Frontend</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">React</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">TypeScript</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">Tailwind</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">Vite</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Backend</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">Node.js</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">PostgreSQL</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">Redis</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">Kafka</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Infrastructure</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">Kubernetes</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">Docker</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">GitLab CI</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">Tilt</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Work -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-12">How We Work</p>
+
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="flex gap-4">
+                    <span class="flex-shrink-0 w-8 h-8 bg-dark text-white rounded-full flex items-center justify-center text-sm font-medium">1</span>
+                    <div>
+                        <h4 class="font-medium mb-2">Discovery</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">Understand your goals, users, and technical requirements.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <span class="flex-shrink-0 w-8 h-8 bg-dark text-white rounded-full flex items-center justify-center text-sm font-medium">2</span>
+                    <div>
+                        <h4 class="font-medium mb-2">Design</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">Architecture, UI/UX, and technical planning.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <span class="flex-shrink-0 w-8 h-8 bg-dark text-white rounded-full flex items-center justify-center text-sm font-medium">3</span>
+                    <div>
+                        <h4 class="font-medium mb-2">Build</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">Iterative development with regular demos and feedback.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <span class="flex-shrink-0 w-8 h-8 bg-dark text-white rounded-full flex items-center justify-center text-sm font-medium">4</span>
+                    <div>
+                        <h4 class="font-medium mb-2">Launch</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">Deployment, monitoring, and ongoing support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-24 md:pb-32">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-dark text-white rounded-3xl p-10 md:p-16 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+                <div>
+                    <h2 class="font-serif text-3xl md:text-4xl font-medium mb-4">Let's Build Together</h2>
+                    <p class="text-gray-400 max-w-lg">
+                        Tell us about your project. We'll discuss scope, timeline, and how we can help.
+                    </p>
+                </div>
+                <a href="#" class="inline-flex items-center px-6 py-3 bg-white text-dark font-medium rounded-full hover:bg-gray-100 transition-colors flex-shrink-0 email-link" data-u="hello" data-d="truebloom.ltd" data-s="Project Inquiry">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full px-6 md:px-12 lg:px-20 py-12 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <p class="text-sm text-gray-400">&copy; 2025 TrueBloom Ltd</p>
+            <a href="#" class="text-sm text-gray-500 hover:text-dark transition-colors email-link" data-u="hello" data-d="truebloom.ltd">
+                <span>hello<span class="hidden">null</span>@truebloom.ltd</span>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.email-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const u = this.dataset.u;
+                const d = this.dataset.d;
+                const s = this.dataset.s;
+                let href = 'mailto:' + u + '@' + d;
+                if (s) href += '?subject=' + s;
+                window.location.href = href;
+            });
+        });
+    </script>
+
+</body>
+</html>
