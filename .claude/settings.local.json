@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree:*)",
+      "Bash(xargs ls:*)",
+      "Bash(ls:*)",
+      "WebFetch(domain:www.libermans.co)",
+      "WebSearch",
+      "WebFetch(domain:apps.apple.com)",
+      "Bash(curl:*)"
+    ]
+  }
+}

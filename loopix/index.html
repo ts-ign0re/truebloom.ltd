@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loopix — TrueBloom Ltd</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0a0a',
+                        light: '#fafafa',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'system-ui', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', system-ui, sans-serif; }
+        .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+        .app-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 22px;
+            object-fit: cover;
+        }
+        @media (min-width: 768px) {
+            .app-icon {
+                width: 140px;
+                height: 140px;
+                border-radius: 32px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light text-dark min-h-screen antialiased">
+
+    <!-- Header -->
+    <header class="w-full px-6 md:px-12 lg:px-20 py-8">
+        <div class="max-w-7xl mx-auto">
+            <a href="../" class="inline-flex items-center text-sm text-gray-500 hover:text-dark transition-colors">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                TrueBloom
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pt-8 pb-16 md:pt-12 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-start gap-8 md:gap-12">
+                <img src="../assets/logos/loopix.png" alt="Loopix" class="app-icon shadow-xl">
+                <div class="flex-1">
+                    <div class="flex items-baseline gap-4 mb-4">
+                        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium">Loopix</h1>
+                        <span class="px-3 py-1 bg-dark text-white text-xs rounded-full">iOS</span>
+                    </div>
+                    <p class="text-xl md:text-2xl text-gray-500 leading-relaxed max-w-2xl">
+                        Professional photo filter app with authentic film emulations based on real film science.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Description -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="max-w-3xl">
+                <p class="text-lg md:text-xl text-gray-600 leading-relaxed mb-8">
+                    Loopix brings the magic of analog photography to your iPhone. With 50+ meticulously crafted film emulations based on measured densitometry data from real Kodak, Fuji, and Ilford stocks, every filter captures the authentic character of classic film.
+                </p>
+                <p class="text-gray-500 leading-relaxed">
+                    Our GPU-accelerated processing engine delivers sub-200ms filter application using Core Image and custom Metal shaders. Share your unique looks with the community through our QR-based recipe system — or discover new styles from photographers worldwide.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-12">Features</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
+                <div>
+                    <h3 class="font-medium text-lg mb-3">50+ Film Emulations</h3>
+                    <p class="text-gray-500 leading-relaxed">Authentic filters based on real Kodak Portra, Fuji Superia, Ilford HP5, and more classic stocks.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-lg mb-3">GPU Accelerated</h3>
+                    <p class="text-gray-500 leading-relaxed">Metal-powered processing delivers results in under 200ms. Edit in real-time without waiting.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-lg mb-3">Recipe Sharing</h3>
+                    <p class="text-gray-500 leading-relaxed">Create, share, and discover filter recipes via QR codes. Build your unique style library.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-lg mb-3">Pro Color Tools</h3>
+                    <p class="text-gray-500 leading-relaxed">Tone curves, color matrices, HSL adjustments, film grain, halation, and vignette effects.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-lg mb-3">RAW Support</h3>
+                    <p class="text-gray-500 leading-relaxed">Import and process RAW files with full quality. ColorChecker calibration for perfect accuracy.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-lg mb-3">Batch Export</h3>
+                    <p class="text-gray-500 leading-relaxed">Process entire albums with a single tap. Export to HEIC, JPEG, or PNG.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-8">Built With</p>
+            <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">Swift 6</span>
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">SwiftUI</span>
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">Core Image</span>
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">Metal</span>
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">PhotoKit</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-24 md:pb-32">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-dark text-white rounded-3xl p-10 md:p-16">
+                <h2 class="font-serif text-3xl md:text-4xl font-medium mb-6">Coming Soon</h2>
+                <p class="text-gray-400 mb-8 max-w-lg">
+                    Join our waitlist to be notified when Loopix launches and get early access to new features.
+                </p>
+                <a href="#" class="inline-flex items-center px-6 py-3 bg-white text-dark font-medium rounded-full hover:bg-gray-100 transition-colors email-link" data-u="hello" data-d="truebloom.ltd" data-s="Loopix%20Waitlist">
+                    Join Waitlist
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full px-6 md:px-12 lg:px-20 py-12 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <p class="text-sm text-gray-400">&copy; 2025 TrueBloom Ltd</p>
+            <a href="#" class="text-sm text-gray-500 hover:text-dark transition-colors email-link" data-u="hello" data-d="truebloom.ltd">
+                <span>hello<span class="hidden">null</span>@truebloom.ltd</span>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.email-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const u = this.dataset.u;
+                const d = this.dataset.d;
+                const s = this.dataset.s;
+                let href = 'mailto:' + u + '@' + d;
+                if (s) href += '?subject=' + s;
+                window.location.href = href;
+            });
+        });
+    </script>
+
+</body>
+</html>

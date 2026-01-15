@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrueBloom Ltd</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0a0a',
+                        light: '#fafafa',
+                        gray: {
+                            50: '#fafafa',
+                            100: '#f5f5f5',
+                            200: '#e5e5e5',
+                            300: '#d4d4d4',
+                            400: '#a3a3a3',
+                            500: '#737373',
+                            600: '#525252',
+                            700: '#404040',
+                            800: '#262626',
+                            900: '#171717',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'system-ui', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', system-ui, sans-serif; }
+        .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+        .project-card:hover .project-image {
+            transform: scale(1.02);
+        }
+        .project-image {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .app-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 16px;
+            object-fit: cover;
+        }
+        @media (min-width: 768px) {
+            .app-icon {
+                width: 88px;
+                height: 88px;
+                border-radius: 20px;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-light text-dark min-h-screen antialiased">
+
+    <!-- Header -->
+    <header class="w-full px-6 md:px-12 lg:px-20 py-8">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="./" class="text-xl font-medium tracking-tight">TrueBloom</a>
+            <a href="mailto:hello@truebloom.ltd" class="text-sm text-gray-500 hover:text-dark transition-colors">
+                Contact
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pt-16 pb-24 md:pt-24 md:pb-32">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium leading-tight tracking-tight mb-8">
+                A family studio<br>
+                <span class="text-gray-400">creating things we love</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-500 max-w-2xl leading-relaxed">
+                We build privacy-first iOS apps and offer personal yoga sessions. Everything we create reflects our values — simplicity, mindfulness, and respect for your time.
+            </p>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-24 md:pb-32">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-12">Products</p>
+
+            <div class="space-y-8 md:space-y-12">
+
+                <!-- Loopix -->
+                <a href="./loopix/" class="project-card group block">
+                    <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 py-8 border-t border-gray-200">
+                        <div class="overflow-hidden rounded-2xl flex-shrink-0">
+                            <img src="./assets/logos/loopix.png" alt="Loopix" class="project-image app-icon">
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-baseline gap-4 mb-3">
+                                <h2 class="font-serif text-2xl md:text-3xl font-medium">Loopix</h2>
+                                <span class="text-xs text-gray-400 uppercase tracking-wide">Photo</span>
+                            </div>
+                            <p class="text-gray-500 leading-relaxed max-w-xl">
+                                Film emulation filters based on real analog stocks. 50+ presets with GPU-accelerated processing.
+                            </p>
+                        </div>
+                        <div class="hidden md:flex items-center text-gray-300 group-hover:text-dark transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- O2 -->
+                <a href="./o2/" class="project-card group block">
+                    <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 py-8 border-t border-gray-200">
+                        <div class="overflow-hidden rounded-2xl flex-shrink-0">
+                            <img src="./assets/logos/o2.jpg" alt="O2" class="project-image app-icon">
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-baseline gap-4 mb-3">
+                                <h2 class="font-serif text-2xl md:text-3xl font-medium">O2</h2>
+                                <span class="text-xs text-green-600 uppercase tracking-wide">Available</span>
+                            </div>
+                            <p class="text-gray-500 leading-relaxed max-w-xl">
+                                Breath-hold training with guided exercises. Build CO2 and O2 tolerance safely over time.
+                            </p>
+                        </div>
+                        <div class="hidden md:flex items-center text-gray-300 group-hover:text-dark transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- UniBook -->
+                <a href="./unibook/" class="project-card group block">
+                    <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 py-8 border-t border-gray-200">
+                        <div class="overflow-hidden rounded-2xl flex-shrink-0">
+                            <img src="./assets/logos/unibook.png" alt="UniBook" class="project-image app-icon">
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-baseline gap-4 mb-3">
+                                <h2 class="font-serif text-2xl md:text-3xl font-medium">UniBook</h2>
+                                <span class="text-xs text-gray-400 uppercase tracking-wide">Reading</span>
+                            </div>
+                            <p class="text-gray-500 leading-relaxed max-w-xl">
+                                Privacy-first eBook and audiobook reader. EPUB, PDF, FB2 — all data stays on your device.
+                            </p>
+                        </div>
+                        <div class="hidden md:flex items-center text-gray-300 group-hover:text-dark transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Yoga -->
+                <a href="./yoga/" class="project-card group block">
+                    <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 py-8 border-t border-b border-gray-200">
+                        <div class="flex-shrink-0 w-[72px] h-[72px] md:w-[88px] md:h-[88px] bg-gray-100 rounded-2xl flex items-center justify-center">
+                            <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-baseline gap-4 mb-3">
+                                <h2 class="font-serif text-2xl md:text-3xl font-medium">Yoga Sessions</h2>
+                                <span class="text-xs text-gray-400 uppercase tracking-wide">Wellness</span>
+                            </div>
+                            <p class="text-gray-500 leading-relaxed max-w-xl">
+                                Personal and group yoga classes. Online and in-person, all levels welcome.
+                            </p>
+                        </div>
+                        <div class="hidden md:flex items-center text-gray-300 group-hover:text-dark transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-24 md:pb-32">
+        <div class="max-w-7xl mx-auto">
+            <div class="max-w-3xl">
+                <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-8">About</p>
+                <p class="font-serif text-2xl md:text-3xl lg:text-4xl leading-relaxed text-gray-700">
+                    We're a small family team who believes great software should feel invisible —
+                    <span class="text-dark">a natural extension of your life, not a distraction from it.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full px-6 md:px-12 lg:px-20 py-12 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+                <div>
+                    <p class="font-medium mb-2">TrueBloom Ltd</p>
+                    <p class="text-sm text-gray-500">Denis Tronin, Olga Tronina & Sons</p>
+                    <p class="text-sm text-gray-500">Cyprus</p>
+                </div>
+                <div class="text-left md:text-right">
+                    <a href="#" class="text-gray-600 hover:text-dark transition-colors email-link" data-u="hello" data-d="truebloom.ltd">
+                        <span class="email-text">hello<span class="hidden">null</span>@truebloom.ltd</span>
+                    </a>
+                    <p class="text-sm text-gray-400 mt-2">&copy; 2025 TrueBloom Ltd</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.email-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const u = this.dataset.u;
+                const d = this.dataset.d;
+                const s = this.dataset.s;
+                let href = 'mailto:' + u + '@' + d;
+                if (s) href += '?subject=' + s;
+                window.location.href = href;
+            });
+        });
+    </script>
+
+</body>
+</html>
