@@ -10,7 +10,14 @@
       "Bash(curl:*)",
       "Bash(git add:*)",
       "Bash(git push:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:mktclarity.com)",
+      "WebFetch(domain:growthvybz.com)",
+      "WebFetch(domain:www.capterra.com)",
+      "WebFetch(domain:www.softwareadvice.com)",
+      "WebFetch(domain:forum.pianoworld.com)",
+      "WebFetch(domain:www.quora.com)"
     ]
   }
 }
