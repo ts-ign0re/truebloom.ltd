@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Remotely — TrueBloom Ltd</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0a0a',
+                        light: '#fafafa',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'system-ui', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', system-ui, sans-serif; }
+        .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+        .app-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 22px;
+            object-fit: cover;
+        }
+        @media (min-width: 768px) {
+            .app-icon {
+                width: 140px;
+                height: 140px;
+                border-radius: 32px;
+            }
+        }
+        .screenshot {
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+        .screenshots-scroll {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .screenshots-scroll::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-light text-dark min-h-screen antialiased">
+
+    <!-- Header -->
+    <header class="w-full px-6 md:px-12 lg:px-20 py-8">
+        <div class="max-w-7xl mx-auto">
+            <a href="../" class="inline-flex items-center text-sm text-gray-500 hover:text-dark transition-colors py-2 pr-4 -ml-2 pl-2 rounded-lg hover:bg-gray-100">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                TrueBloom
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pt-8 pb-16 md:pt-12 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-start gap-8 md:gap-12">
+                <img src="../assets/logos/fonda.jpg" alt="Work Remotely" class="app-icon shadow-xl">
+                <div class="flex-1">
+                    <div class="flex items-baseline gap-4 mb-4">
+                        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium">Work Remotely</h1>
+                        <span class="px-3 py-1 bg-dark text-white text-xs rounded-full">iOS</span>
+                    </div>
+                    <p class="text-xl md:text-2xl text-gray-500 leading-relaxed max-w-2xl mb-8">
+                        1,000+ fresh job listings every day. Filter by remote, salary, category, and level. Your next career move starts here.
+                    </p>
+                    <a href="https://apps.apple.com/app/id1620126090" target="_blank" class="inline-flex items-center px-6 py-3 bg-dark text-white font-medium rounded-full hover:bg-gray-800 transition-colors">
+                        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        Download on App Store
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-8">Screenshots</p>
+            <div class="flex gap-4 md:gap-6 overflow-x-auto screenshots-scroll pb-4 -mr-6 md:-mr-12 lg:-mr-20 pr-6 md:pr-12 lg:pr-20">
+                <img src="../assets/screenshots/fonda/1.jpg" alt="Work Remotely — Jobs list" class="screenshot h-[400px] md:h-[500px] w-auto flex-shrink-0">
+                <img src="../assets/screenshots/fonda/2.jpg" alt="Work Remotely — Job details" class="screenshot h-[400px] md:h-[500px] w-auto flex-shrink-0">
+                <img src="../assets/screenshots/fonda/3.jpg" alt="Work Remotely — Favorites" class="screenshot h-[400px] md:h-[500px] w-auto flex-shrink-0">
+            </div>
+        </div>
+    </section>
+
+    <!-- Description -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="max-w-3xl">
+                <p class="text-lg md:text-xl text-gray-600 leading-relaxed mb-8">
+                    Work Remotely brings you thousands of fresh job listings every single day from around the world. Whether you're looking for remote work, office positions, or hybrid roles — browse, filter, and save the ones that matter.
+                </p>
+                <p class="text-gray-500 leading-relaxed">
+                    Premium unlocks full job descriptions, salary data, advanced search, and unlimited browsing. Available in 6 languages: English, German, French, Russian, Portuguese, and Spanish.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-12">Features</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
+                <div>
+                    <h3 class="font-medium text-lg mb-3">1,000+ Jobs Daily</h3>
+                    <p class="text-gray-500 leading-relaxed">Fresh listings from a live API, refreshed throughout the day across global job markets.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-lg mb-3">Smart Filters</h3>
+                    <p class="text-gray-500 leading-relaxed">Filter by remote, hybrid, on-site, category, experience level, and region.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-lg mb-3">Salary Data</h3>
+                    <p class="text-gray-500 leading-relaxed">Full salary ranges visible with Premium so you know what to expect before applying.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-lg mb-3">Favorites</h3>
+                    <p class="text-gray-500 leading-relaxed">Save jobs you like and come back to them any time. Your shortlist, always at hand.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-lg mb-3">Push Notifications</h3>
+                    <p class="text-gray-500 leading-relaxed">Get notified when new listings match your interests. Never miss an opportunity.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-lg mb-3">6 Languages</h3>
+                    <p class="text-gray-500 leading-relaxed">English, German, French, Russian, Portuguese, and Spanish — fully localized.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-8">Built With</p>
+            <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">Swift 6</span>
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">SwiftUI</span>
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">StoreKit 2</span>
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">UserNotifications</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-24 md:pb-32">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-dark text-white rounded-3xl p-10 md:p-16 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+                <div>
+                    <h2 class="font-serif text-3xl md:text-4xl font-medium mb-4">Available Now</h2>
+                    <p class="text-gray-400 max-w-lg">
+                        Start your job search today. Free to download with optional Premium subscription.
+                    </p>
+                </div>
+                <a href="https://apps.apple.com/app/id1620126090" target="_blank" class="inline-flex items-center px-6 py-3 bg-white text-dark font-medium rounded-full hover:bg-gray-100 transition-colors flex-shrink-0">
+                    <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                    App Store
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full px-6 md:px-12 lg:px-20 py-12 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <p class="text-sm text-gray-400">&copy; 2025 TrueBloom Ltd</p>
+            <a href="#" class="text-sm text-gray-500 hover:text-dark transition-colors email-link" data-u="hello" data-d="truebloom.ltd">
+                <span>hello<span class="hidden">null</span>@truebloom.ltd</span>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.email-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const u = this.dataset.u;
+                const d = this.dataset.d;
+                const s = this.dataset.s;
+                let href = 'mailto:' + u + '@' + d;
+                if (s) href += '?subject=' + s;
+                window.location.href = href;
+            });
+        });
+    </script>
+
+</body>
+</html>

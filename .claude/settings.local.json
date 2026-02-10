@@ -17,7 +17,19 @@
       "WebFetch(domain:www.capterra.com)",
       "WebFetch(domain:www.softwareadvice.com)",
       "WebFetch(domain:forum.pianoworld.com)",
-      "WebFetch(domain:www.quora.com)"
+      "WebFetch(domain:www.quora.com)",
+      "Bash(grep:*)",
+      "Bash(done)",
+      "Bash(python3:*)",
+      "Bash(for str in \"Test PB\" \"Test\" \"Skip to Next Step\" \"Skip to End\" \"How was that?\" \"Box Breathing\")",
+      "Bash(do)",
+      "Bash(if grep -q \"\"\"$str\"\":\" O2/Resources/Localizable.xcstrings)",
+      "Bash(then)",
+      "Bash(echo:*)",
+      "Bash(else)",
+      "Bash(fi)",
+      "Bash(pip3 install:*)",
+      "Bash(pip install:*)"
     ]
   }
 }
