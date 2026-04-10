@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit Pulse — Real Net Profit for Shopify Merchants | TrueBloom Ltd</title>
+    <meta name="description" content="Profit Pulse is a Shopify app that calculates real net profit by combining COGS, shipping, ad spend from Google Ads and Meta, transaction fees, and custom costs into one clear dashboard.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0a0a',
+                        light: '#fafafa',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'system-ui', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', system-ui, sans-serif; }
+        .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+        .app-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 22px;
+        }
+        @media (min-width: 768px) {
+            .app-icon {
+                width: 140px;
+                height: 140px;
+                border-radius: 32px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light text-dark min-h-screen antialiased">
+
+    <!-- Header -->
+    <header class="w-full px-6 md:px-12 lg:px-20 py-8">
+        <div class="max-w-7xl mx-auto">
+            <a href="../" class="inline-flex items-center text-sm text-gray-500 hover:text-dark transition-colors py-2 pr-4 -ml-2 pl-2 rounded-lg hover:bg-gray-100">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                TrueBloom
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pt-8 pb-16 md:pt-12 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-start gap-8 md:gap-12">
+                <div class="app-icon bg-emerald-600 flex items-center justify-center shadow-xl">
+                    <svg class="w-12 h-12 md:w-16 md:h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <div class="flex-1">
+                    <div class="flex items-baseline gap-4 mb-4 flex-wrap">
+                        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium">Profit Pulse</h1>
+                        <span class="px-3 py-1 bg-green-600 text-white text-xs rounded-full">Shopify App</span>
+                    </div>
+                    <p class="text-xl md:text-2xl text-gray-500 leading-relaxed max-w-2xl mb-8">
+                        The only number that matters for your Shopify store: real net profit. COGS, shipping, ad spend, transaction fees, refunds, and custom costs &mdash; calculated automatically, displayed clearly.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Props -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white border border-gray-100 rounded-2xl p-6">
+                    <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-medium text-lg mb-2">Real-Time Profit</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">See today's net profit the moment you open your Shopify admin. Not revenue &mdash; actual profit after all costs are subtracted.</p>
+                </div>
+                <div class="bg-white border border-gray-100 rounded-2xl p-6">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-medium text-lg mb-2">Auto Ad Sync</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Connect Google Ads and Meta Ads accounts via OAuth. Daily spend is pulled automatically every 6 hours and factored into profit.</p>
+                </div>
+                <div class="bg-white border border-gray-100 rounded-2xl p-6">
+                    <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-medium text-lg mb-2">Flat Pricing</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">No per-order surcharges. Your bill stays the same whether you process 100 orders or 5,000. Predictable costs, predictable margins.</p>
+                </div>
+                <div class="bg-white border border-gray-100 rounded-2xl p-6">
+                    <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-medium text-lg mb-2">Shopify Native</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Built for Shopify (BFS). Embedded in your Shopify admin, Polaris design system, session-token auth. Feels like part of Shopify itself.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-8">The Problem</p>
+            <div class="max-w-3xl">
+                <p class="font-serif text-2xl md:text-3xl leading-relaxed text-gray-700 mb-6">
+                    Shopify tells you how much you <span class="text-dark">sold</span>. It never tells you how much you <span class="text-dark">earned</span>.
+                </p>
+                <p class="text-gray-500 leading-relaxed mb-6">
+                    Every DTC merchant running a Shopify store faces the same frustrating blind spot. Shopify's analytics dashboard shows revenue, order count, and average order value &mdash; vanity metrics that look great on a screen but tell you nothing about actual profitability. A store can do $50K in monthly revenue and still lose money once you subtract product costs, real shipping expenses, payment processing fees, ad spend across Google and Meta, refunds, and dozens of small operational costs like packaging, software subscriptions, and warehouse rent.
+                </p>
+                <p class="text-gray-500 leading-relaxed mb-6">
+                    Today, most merchants cobble together spreadsheets &mdash; manually pulling ad spend from Google Ads, cross-referencing Meta campaigns, estimating shipping from carrier invoices, and guessing at COGS because Shopify doesn't track cost-per-variant natively. By the time they finish their "profit report," the data is a week old and riddled with errors. Some give up entirely and just hope the bank balance goes up each month.
+                </p>
+                <p class="text-gray-500 leading-relaxed">
+                    The competitors that exist either charge per-order surcharges (your bill grows as you grow &mdash; punishing success), cost $100+/month for basic functionality, or try to be everything at once: LTV analysis, cohort reports, AI predictions. Most merchants don't need any of that. They need one number, updated in real time: <strong>how much real profit did I make today?</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-8">How It Works</p>
+            <h2 class="font-serif text-2xl md:text-3xl font-medium mb-4">One formula. Every cost included.</h2>
+            <p class="text-gray-500 leading-relaxed max-w-2xl mb-12">
+                Profit Pulse syncs your Shopify orders in real time via webhooks, pulls ad spend from your connected advertising accounts, and applies your cost configuration to compute net profit for every order, every product, every day.
+            </p>
+
+            <div class="bg-white border border-gray-100 rounded-2xl p-8 md:p-10 mb-12">
+                <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-6">The Profit Formula</p>
+                <div class="space-y-4 font-mono text-sm md:text-base">
+                    <p class="text-gray-700"><span class="text-emerald-600 font-medium">order_profit</span> = gross_revenue &minus; discounts &minus; refunds &minus; COGS &minus; shipping_cost &minus; transaction_fee</p>
+                    <p class="text-gray-700"><span class="text-emerald-600 font-medium">daily_profit</span> = SUM(order_profits) &minus; daily_ad_spend &minus; prorated_custom_costs</p>
+                </div>
+                <p class="text-gray-400 text-sm mt-6">Every component is tracked, configurable, and auditable. No black boxes.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <span class="text-emerald-600 font-serif text-2xl font-medium">1</span>
+                    </div>
+                    <h3 class="font-medium text-lg mb-2">Install & Connect</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Install from the Shopify App Store. Connect your Google Ads and Meta Ads accounts via secure OAuth. Set your COGS and shipping rules.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <span class="text-emerald-600 font-serif text-2xl font-medium">2</span>
+                    </div>
+                    <h3 class="font-medium text-lg mb-2">Automatic Sync</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Orders sync in real time via Shopify webhooks. Ad spend is pulled every 6 hours from Google and Meta APIs. Historical data is backfilled on install.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <span class="text-emerald-600 font-serif text-2xl font-medium">3</span>
+                    </div>
+                    <h3 class="font-medium text-lg mb-2">See Real Profit</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Open your Shopify admin and see today's net profit front and center. Drill into products, compare periods, and get daily email digests.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-12">Core Features</p>
+
+            <div class="space-y-16">
+
+                <!-- Profit Dashboard -->
+                <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center">
+                                <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-serif text-xl md:text-2xl font-medium">Profit Dashboard</h3>
+                        </div>
+                        <p class="text-gray-500 leading-relaxed mb-4">
+                            Your command center. Today's net profit displayed prominently, with key metrics &mdash; revenue, order count, profit margin, average order profit &mdash; all at a glance. A daily trend chart shows how profit moves over time.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-500">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Today's net profit front and center
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Date range selector (today, 7d, 30d, custom)
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Period-over-period comparison
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                COGS coverage indicator (nudges to complete cost data)
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-8 md:p-10">
+                        <p class="text-emerald-800 font-medium mb-2">Why It Matters</p>
+                        <p class="text-emerald-700 text-sm leading-relaxed">
+                            Most merchants check Shopify analytics and see revenue &mdash; a number that means almost nothing for financial decisions. Profit Pulse replaces guesswork with a single, reliable number: net profit after all costs. Merchants can finally answer "should I scale this campaign?" or "is this product actually profitable?" with data, not gut feeling.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Google Ads Integration -->
+                <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-serif text-xl md:text-2xl font-medium">Google Ads Integration</h3>
+                        </div>
+                        <p class="text-gray-500 leading-relaxed mb-4">
+                            Merchants connect their Google Ads account via a standard OAuth 2.0 flow. Profit Pulse requests read-only access to campaign spend data through the Google Ads API (v17+). Every 6 hours, a background job fetches the daily spend total and upserts it into our ad_spend table, broken down by date. This spend is then subtracted from daily revenue in the profit calculation.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-500">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                OAuth 2.0 consent flow &mdash; merchant authorizes read-only access
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Google Ads API v17 &mdash; fetches daily campaign spend aggregates
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Automatic sync every 6 hours via background job queue
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Tokens encrypted at rest (AES-256-GCM), automatic refresh
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Manual refresh trigger + connection status in Settings UI
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 md:p-10">
+                        <p class="text-blue-800 font-medium mb-2">Why Google Ads API?</p>
+                        <p class="text-blue-700 text-sm leading-relaxed mb-4">
+                            Google Ads is one of the two primary advertising channels for DTC Shopify merchants (alongside Meta). Without automated ad spend data from Google Ads, merchants must manually log into Google Ads, export their spend reports, and type the numbers into a spreadsheet &mdash; a process that's error-prone, time-consuming, and always out of date.
+                        </p>
+                        <p class="text-blue-700 text-sm leading-relaxed">
+                            Profit Pulse uses the Google Ads API exclusively to read daily campaign spend totals. We do not create, modify, or manage campaigns. The integration is read-only: we fetch spend data and subtract it from daily revenue to calculate true net profit. This is the core value proposition of the product &mdash; automating the most tedious part of profit tracking for e-commerce merchants.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Meta Ads Integration -->
+                <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center">
+                                <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-serif text-xl md:text-2xl font-medium">Meta (Facebook & Instagram) Ads</h3>
+                        </div>
+                        <p class="text-gray-500 leading-relaxed mb-4">
+                            Same principle as Google Ads: OAuth-based connection to the merchant's Meta Business account. Profit Pulse pulls daily ad spend from the Meta Marketing API every 6 hours. Spend is attributed by date and channel, then factored into the daily profit calculation alongside Google Ads spend.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-500">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Meta Marketing API &mdash; read-only spend aggregates
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Facebook & Instagram campaigns combined
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Synced every 6 hours alongside Google Ads
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Manual entry fallback for merchants who prefer not to connect
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-2xl p-8 md:p-10">
+                        <p class="text-indigo-800 font-medium mb-2">Multi-Channel View</p>
+                        <p class="text-indigo-700 text-sm leading-relaxed">
+                            Most DTC merchants advertise on both Google and Meta simultaneously. Profit Pulse combines spend from all connected channels into a single daily total, so the merchant sees one unified profit number &mdash; not a fragmented view across platforms. If a merchant doesn't use a channel, they simply don't connect it. Manual ad spend entry is always available as an alternative.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- COGS Management -->
+                <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center">
+                                <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-serif text-xl md:text-2xl font-medium">COGS Management</h3>
+                        </div>
+                        <p class="text-gray-500 leading-relaxed mb-4">
+                            Cost of Goods Sold is the single largest cost for most e-commerce stores and the most critical input for profit accuracy. Profit Pulse lets merchants set cost per product variant &mdash; manually or via bulk CSV import. COGS history is tracked with effective dates, so orders are always calculated against the cost that applied at the time of purchase.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-500">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Per-variant cost entry (manual or CSV bulk import)
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Historical cost tracking with effective_from dates
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                CSV template download for easy onboarding
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Coverage indicator showing % of products with costs assigned
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 md:p-10">
+                        <p class="text-orange-800 font-medium mb-2">Why It Matters</p>
+                        <p class="text-orange-700 text-sm leading-relaxed">
+                            Without COGS, profit calculation is meaningless &mdash; you're just looking at revenue minus fees. Profit Pulse makes COGS entry as painless as possible: download the CSV template (pre-populated with your product catalog), fill in costs, upload. The coverage indicator shows exactly which products still need cost data, so merchants can prioritize.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Product-Level Breakdown -->
+                <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center">
+                                <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-serif text-xl md:text-2xl font-medium">Product-Level Profit</h3>
+                        </div>
+                        <p class="text-gray-500 leading-relaxed mb-4">
+                            Not all products are created equal. Some generate strong margins, others quietly destroy profitability. Profit Pulse breaks down profit by product for any date range &mdash; showing units sold, revenue, COGS, profit, and margin percentage. Sort by any column. Products with negative margins are highlighted in red.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-500">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Per-product profit/loss table with sortable columns
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Negative margin products highlighted in red
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Search and filter by product name or SKU
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                CSV export for accounting and reporting
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 md:p-10">
+                        <p class="text-purple-800 font-medium mb-2">Why It Matters</p>
+                        <p class="text-purple-700 text-sm leading-relaxed">
+                            A store with 20% average margin might have individual products ranging from &minus;5% to +60%. Without product-level data, merchants can't identify which products to promote, which to discontinue, and which need pricing adjustments. This view turns guesswork into strategy.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Features -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-12">Additional Capabilities</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
+                <div>
+                    <h3 class="font-medium text-lg mb-3">Shipping Cost Rules</h3>
+                    <p class="text-gray-500 leading-relaxed">Configurable rules for actual shipping costs: flat per order, per item, or weight-based. Country/region filters and priority ordering. What the customer pays is not what shipping costs you.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-lg mb-3">Custom Costs</h3>
+                    <p class="text-gray-500 leading-relaxed">Add recurring or one-time operational costs: software subscriptions, packaging, warehouse rent, tax bills. Prorated into daily profit automatically by frequency (daily, weekly, monthly, one-time).</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-lg mb-3">Daily Email Digest</h3>
+                    <p class="text-gray-500 leading-relaxed">Automated daily email at your preferred time. Yesterday's net profit, order count, margin, top 3 and bottom 3 products by profit, and a 7-day trend. Timezone-aware, configurable recipients.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-lg mb-3">Order Sync Pipeline</h3>
+                    <p class="text-gray-500 leading-relaxed">Real-time sync via Shopify webhooks (orders/create, updated, cancelled, refunds). Historical backfill on install. Daily reconciliation job to catch any drift. Idempotent processing, no duplicates.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-lg mb-3">Onboarding Wizard</h3>
+                    <p class="text-gray-500 leading-relaxed">3-minute guided setup: choose plan, verify currency, set payment processing fee, import COGS. First profit estimate shown immediately. Connect ad accounts later in Settings.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-lg mb-3">Manual Ad Spend Entry</h3>
+                    <p class="text-gray-500 leading-relaxed">Don't want to connect APIs? Enter daily ad spend manually by channel and date. Upsert pattern prevents duplicates. Works alongside or instead of automated sync.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Privacy & Security -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-6">Data Privacy & Security</p>
+            <h2 class="font-serif text-2xl md:text-3xl font-medium mb-4">Your data, protected.</h2>
+            <p class="text-gray-500 leading-relaxed max-w-2xl mb-12">
+                Profit Pulse handles financial data from Shopify, Google Ads, and Meta. We take data privacy seriously &mdash; here's exactly how we protect merchant information.
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white border border-gray-100 rounded-2xl p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center">
+                            <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-medium">Encrypted Tokens</h3>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">All OAuth tokens (Shopify, Google, Meta) encrypted at rest with AES-256-GCM. Encryption keys stored in environment variables, never in code or logs.</p>
+                </div>
+
+                <div class="bg-white border border-gray-100 rounded-2xl p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
+                            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-medium">Shopify Session Auth</h3>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">No custom passwords or JWT tokens. Authentication exclusively via Shopify session tokens validated by App Bridge v4. HMAC verification on every request.</p>
+                </div>
+
+                <div class="bg-white border border-gray-100 rounded-2xl p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center">
+                            <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-medium">GDPR Compliance</h3>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">Full GDPR support via Shopify mandatory webhooks. Merchant-initiated data deletion. On uninstall, all shop data is hard-deleted with cascade.</p>
+                </div>
+
+                <div class="bg-white border border-gray-100 rounded-2xl p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center">
+                            <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-medium">Data Isolation</h3>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">Every database query includes shop_id. No cross-shop data leakage is possible. Each merchant's data is completely isolated from all others.</p>
+                </div>
+
+                <div class="bg-white border border-gray-100 rounded-2xl p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center">
+                            <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-medium">No PII Stored</h3>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">We store Shopify order IDs and financial amounts only. No customer names, emails, addresses, or payment details are ever stored in our database.</p>
+                </div>
+
+                <div class="bg-white border border-gray-100 rounded-2xl p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-cyan-100 rounded-xl flex items-center justify-center">
+                            <svg class="w-5 h-5 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-medium">Read-Only API Access</h3>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">Google Ads and Meta integrations are strictly read-only. We fetch spend data. We never create, modify, pause, or delete campaigns or any other resources.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-6">Pricing</p>
+            <h2 class="font-serif text-2xl md:text-3xl font-medium mb-4">Flat rate. No per-order fees. Ever.</h2>
+            <p class="text-gray-500 leading-relaxed max-w-2xl mb-12">
+                Competitors charge per order &mdash; so your bill grows as your store grows. Profit Pulse is flat-rate: your cost is predictable regardless of order volume within your plan.
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white border border-gray-100 rounded-2xl p-6">
+                    <p class="text-sm text-gray-400 uppercase tracking-wide mb-2">Free</p>
+                    <p class="text-3xl font-medium mb-1">$0</p>
+                    <p class="text-sm text-gray-400 mb-6">/month</p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li>Up to 50 orders/month</li>
+                        <li>7 days history</li>
+                        <li>Basic dashboard</li>
+                        <li>Manual ad spend entry</li>
+                    </ul>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-2xl p-6 ring-2 ring-emerald-500">
+                    <p class="text-sm text-emerald-600 uppercase tracking-wide mb-2">Starter</p>
+                    <p class="text-3xl font-medium mb-1">$19</p>
+                    <p class="text-sm text-gray-400 mb-6">/month &middot; 7-day free trial</p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li>Up to 300 orders/month</li>
+                        <li>90 days history</li>
+                        <li>Full dashboard</li>
+                        <li>Manual ad spend entry</li>
+                    </ul>
+                </div>
+                <div class="bg-white border border-gray-100 rounded-2xl p-6">
+                    <p class="text-sm text-gray-400 uppercase tracking-wide mb-2">Growth</p>
+                    <p class="text-3xl font-medium mb-1">$49</p>
+                    <p class="text-sm text-gray-400 mb-6">/month &middot; 7-day free trial</p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li>Up to 1,500 orders/month</li>
+                        <li>Unlimited history</li>
+                        <li>Google Ads & Meta Ads sync</li>
+                        <li>CSV export + email digest</li>
+                    </ul>
+                </div>
+                <div class="bg-white border border-gray-100 rounded-2xl p-6">
+                    <p class="text-sm text-gray-400 uppercase tracking-wide mb-2">Scale</p>
+                    <p class="text-3xl font-medium mb-1">$99</p>
+                    <p class="text-sm text-gray-400 mb-6">/month</p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li>Up to 5,000 orders/month</li>
+                        <li>Unlimited history</li>
+                        <li>Google Ads & Meta Ads sync</li>
+                        <li>Priority support</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="text-sm text-gray-400 mt-6">All payments processed through Shopify Billing API. No external payment processing required.</p>
+        </div>
+    </section>
+
+    <!-- API Usage Summary -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-6">API & Data Usage</p>
+            <h2 class="font-serif text-2xl md:text-3xl font-medium mb-4">Transparent about what we access and why.</h2>
+            <p class="text-gray-500 leading-relaxed max-w-2xl mb-12">
+                Profit Pulse integrates with three external platforms. Here's exactly what data we access from each, why, and how it's used.
+            </p>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="border-b border-gray-200">
+                            <th class="py-4 pr-6 font-medium">Platform</th>
+                            <th class="py-4 px-6 font-medium text-gray-400">Data Accessed</th>
+                            <th class="py-4 px-6 font-medium text-gray-400">Purpose</th>
+                            <th class="py-4 px-6 font-medium text-gray-400">Access Type</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        <tr class="border-b border-gray-100">
+                            <td class="py-4 pr-6 font-medium">Shopify</td>
+                            <td class="py-4 px-6 text-gray-500">Orders, line items, refunds, product catalog</td>
+                            <td class="py-4 px-6 text-gray-500">Revenue calculation, order profit breakdown, COGS assignment</td>
+                            <td class="py-4 px-6 text-gray-500">Webhooks + REST API (read)</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-4 pr-6 font-medium">Google Ads API</td>
+                            <td class="py-4 px-6 text-gray-500">Daily campaign spend totals (aggregated)</td>
+                            <td class="py-4 px-6 text-gray-500">Subtract Google advertising costs from daily profit</td>
+                            <td class="py-4 px-6 text-gray-500">OAuth 2.0 (read-only)</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-4 pr-6 font-medium">Meta Marketing API</td>
+                            <td class="py-4 px-6 text-gray-500">Daily ad account spend totals (aggregated)</td>
+                            <td class="py-4 px-6 text-gray-500">Subtract Meta advertising costs from daily profit</td>
+                            <td class="py-4 px-6 text-gray-500">OAuth 2.0 (read-only)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-8">Built With</p>
+            <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">React 18</span>
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">React Router 7</span>
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">TypeScript</span>
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">Shopify Polaris v12</span>
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">Shopify App Bridge v4</span>
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">NestJS 10</span>
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">PostgreSQL 16</span>
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">Redis 7</span>
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">BullMQ</span>
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">Prisma</span>
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">Turborepo</span>
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">Google Ads API v17</span>
+                <span class="px-4 py-2 border border-gray-200 text-gray-600 text-sm rounded-full">Meta Marketing API</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Customer -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="max-w-3xl">
+                <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-8">Who It's For</p>
+                <p class="font-serif text-2xl md:text-3xl leading-relaxed text-gray-700 mb-6">
+                    Built for <span class="text-dark">founder-led DTC stores</span> that run paid ads and need to know if they're actually making money.
+                </p>
+                <p class="text-gray-500 leading-relaxed mb-6">
+                    The typical Profit Pulse merchant processes 100&ndash;1,000 orders per month, does $10K&ndash;$200K in monthly revenue, and advertises on Google and Meta. They're past the "launch and pray" stage &mdash; they need unit economics, not just top-line growth. They've tried spreadsheets, they've looked at competitors that charge $35+ per order, and they want something that just works.
+                </p>
+                <p class="text-gray-500 leading-relaxed">
+                    If you're a Shopify merchant who wakes up wondering "am I actually profitable?" &mdash; Profit Pulse gives you the answer before your morning coffee is ready.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="w-full px-6 md:px-12 lg:px-20 pb-24 md:pb-32">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-gradient-to-br from-gray-800 to-gray-900 text-white rounded-3xl p-10 md:p-16">
+                <div class="max-w-2xl">
+                    <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-300 text-xs rounded-full mb-6">Shopify App Store</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-medium mb-4">Stop guessing. Start knowing.</h2>
+                    <p class="text-white/80 mb-8 leading-relaxed">
+                        Profit Pulse is an embedded Shopify app built by TrueBloom Ltd. We're a small family studio that builds products we believe in &mdash; simple tools that solve real problems for real people. Profit Pulse exists because every merchant deserves to know their true bottom line without wrestling with spreadsheets or paying per-order fees.
+                    </p>
+                    <p class="text-white/60 text-sm">
+                        Questions about Profit Pulse? <a href="#" class="text-white underline hover:no-underline email-link" data-u="hello" data-d="truebloom.ltd" data-s="Profit Pulse Inquiry">Get in touch</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full px-6 md:px-12 lg:px-20 py-12 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <p class="text-sm text-gray-400">&copy; 2025 TrueBloom Ltd</p>
+            <a href="#" class="text-sm text-gray-500 hover:text-dark transition-colors email-link" data-u="hello" data-d="truebloom.ltd">
+                <span>hello<span class="hidden">null</span>@truebloom.ltd</span>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.email-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const u = this.dataset.u;
+                const d = this.dataset.d;
+                const s = this.dataset.s;
+                let href = 'mailto:' + u + '@' + d;
+                if (s) href += '?subject=' + encodeURIComponent(s);
+                window.location.href = href;
+            });
+        });
+    </script>
+
+</body>
+</html>
