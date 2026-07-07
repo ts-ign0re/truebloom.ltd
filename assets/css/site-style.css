@@ -283,3 +283,44 @@ body > header a:hover {
     box-shadow: none !important;
     transform: none !important;
 }
+
+.bg-dark.text-white.rounded-3xl {
+    padding: clamp(30px, 5vw, 56px) 0 0 !important;
+    border-top: 2px solid var(--tb-line) !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: var(--tb-ink) !important;
+}
+
+.bg-dark.text-white.rounded-3xl h2 {
+    max-width: 620px;
+    color: var(--tb-ink) !important;
+}
+
+.bg-dark.text-white.rounded-3xl p {
+    max-width: 620px;
+    color: rgba(23, 25, 19, 0.62) !important;
+}
+
+.bg-dark.text-white.rounded-3xl a.inline-flex {
+    border: 2px solid var(--tb-ink) !important;
+    background: var(--tb-ink) !important;
+    color: var(--tb-paper) !important;
+    box-shadow: none !important;
+}
+
+.bg-dark.text-white.rounded-3xl a.inline-flex:hover {
+    border-color: var(--tb-fern-deep) !important;
+    background: var(--tb-fern-deep) !important;
+    color: var(--tb-paper) !important;
+}
+
+.bg-dark.text-white.rounded-3xl a.inline-flex svg {
+    color: currentColor !important;
+}
+
+@media (min-width: 768px) {
+    .bg-dark.text-white.rounded-3xl {
+        align-items: end !important;
+    }
