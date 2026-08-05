@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Support for Rental Inspection, the private move-in and move-out photo condition report app.">
+    <title>Rental Inspection — Support</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { dark: '#071b2d', light: '#f7fafc', accent: '#f5a623' }, fontFamily: { sans: ['Poppins', 'system-ui', 'sans-serif'], serif: ['Playfair Display', 'Georgia', 'serif'] } } } }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/site-style.css">
+</head>
+<body class="bg-light text-dark min-h-screen antialiased">
+    <header class="px-6 md:px-12 py-8">
+        <div class="max-w-5xl mx-auto">
+            <a href="../" class="text-sm text-gray-500 hover:text-dark">← TrueBloom</a>
+        </div>
+    </header>
+
+    <main class="px-6 md:px-12 pb-24">
+        <div class="max-w-5xl mx-auto">
+            <section class="py-12 md:py-20">
+                <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-5">iPhone &amp; iPad</p>
+                <h1 class="font-serif text-5xl md:text-7xl font-semibold mb-6">Rental Inspection</h1>
+                <p class="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-3xl">Capture move-in and move-out condition evidence, create a clear PDF, and protect the exact report with trusted UTC time and offline-verifiable QR codes.</p>
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <span class="rounded-full bg-dark text-white px-4 py-2 text-sm">No account</span>
+                    <span class="rounded-full border border-gray-300 px-4 py-2 text-sm">Photos stay on device</span>
+                    <span class="rounded-full border border-gray-300 px-4 py-2 text-sm">Pay once, use forever</span>
+                </div>
+            </section>
+
+            <section class="grid md:grid-cols-3 gap-6 py-12 border-y border-gray-200">
+                <div><h2 class="font-medium text-lg mb-2">Camera-only evidence</h2><p class="text-gray-500 leading-relaxed">Inspection photos are captured inside the app and organised room by room.</p></div>
+                <div><h2 class="font-medium text-lg mb-2">Protected PDF</h2><p class="text-gray-500 leading-relaxed">The report can include an independent RFC 3161 timestamp and document/photo QR references.</p></div>
+                <div><h2 class="font-medium text-lg mb-2">Offline verification</h2><p class="text-gray-500 leading-relaxed">Scan a protected report with Rental Inspection to verify its cryptographic structure on-device.</p></div>
+            </section>
+
+            <section class="py-16 max-w-3xl">
+                <h2 class="font-serif text-3xl md:text-4xl mb-6">Need help?</h2>
+                <p class="text-gray-600 leading-relaxed mb-6">For purchase restoration, report export, timestamp or verification questions, email us and include your iOS version and a short description of what happened. Do not attach private inspection photos unless they are necessary to diagnose the issue.</p>
+                <a href="mailto:hello@truebloom.ltd?subject=Rental%20Inspection%20Support" class="inline-flex rounded-full bg-dark text-white px-6 py-3 font-medium">hello@truebloom.ltd</a>
+            </section>
+        </div>
+    </main>
+
+    <footer class="px-6 md:px-12 py-10 border-t border-gray-200">
+        <div class="max-w-5xl mx-auto flex flex-wrap gap-6 justify-between text-sm text-gray-500">
+            <p>&copy; 2026 TrueBloom Ltd</p>
+            <div class="flex gap-6"><a href="./terms#terms-of-use" class="hover:text-dark">Terms</a><a href="./terms#privacy-policy" class="hover:text-dark">Privacy</a></div>
+        </div>
+    </footer>
+</body>
+</html>
+
