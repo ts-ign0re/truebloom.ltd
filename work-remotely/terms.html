@@ -130,7 +130,7 @@
             <!-- Privacy Policy -->
             <section id="privacy-policy">
                 <h1 class="font-serif text-3xl md:text-4xl font-medium mb-2">Privacy Policy</h1>
-                <p class="text-sm text-gray-400 mb-10">Last updated: February 18, 2026</p>
+                <p class="text-sm text-gray-400 mb-10">Last updated: September 3, 2026</p>
 
                 <div class="space-y-6 text-gray-600 leading-relaxed">
                     <p>TrueBloom Ltd ("Company", "we", "us") operates the Work Remotely application ("App"). This Privacy Policy explains how we collect, use, and protect your information.</p>
@@ -138,13 +138,14 @@
                     <h2 class="text-xl font-medium text-dark pt-4">1. Information We Collect</h2>
                     <p>We collect the following information:</p>
                     <ul class="list-disc pl-6 space-y-2">
-                        <li><strong>Device identifier</strong> — an anonymous, randomly generated identifier stored in your device's Keychain, used to associate your data with your device. This identifier persists across app reinstalls but is not linked to your Apple ID or any personal identity.</li>
+                        <li><strong>Device identifier</strong> — an anonymous, randomly generated identifier stored in your device's Keychain (iOS) or in app-private storage protected by the Android Keystore (Android), used to associate your data with your device. On iOS it persists across app reinstalls; it is not linked to your Apple ID, Google account or any personal identity.</li>
+                        <li><strong>Advertising identifier (Android only)</strong> — the Android app shows optional rewarded video ads through Google AdMob. AdMob may access your device's advertising ID and ad-related device information to serve and measure ads. In the EU/EEA and UK you are asked for consent before any ad is loaded (Google User Messaging Platform); you can reset or delete the advertising ID and opt out of personalised ads in your device settings. Premium users see no ads.</li>
                         <li><strong>Device information</strong> — device model, operating system version, and app version for compatibility and troubleshooting.</li>
                         <li><strong>Usage data</strong> — anonymous analytics about how you use the App, such as features accessed and session duration.</li>
-                        <li><strong>Subscription data</strong> — subscription status is managed entirely by Apple through StoreKit. We do not collect or store your payment information.</li>
+                        <li><strong>Purchase data</strong> — purchase status is managed entirely by Apple (StoreKit) on iOS and by Google Play Billing on Android. We do not collect or store your payment information.</li>
                         <li><strong>Resume data</strong> — if you use the AI Resume Tailoring feature, the resume text you submit is stored on our servers, associated with your anonymous device identifier. This data may contain personal information such as your name, employment history, education, skills, and contact details.</li>
                         <li><strong>Tailored resume outputs</strong> — AI-generated resume versions are stored on our servers, associated with your anonymous device identifier.</li>
-                        <li><strong>Favorites</strong> — saved job listings are stored locally on your device using SwiftData and are not transmitted to our servers.</li>
+                        <li><strong>Favorites</strong> — saved job listings are stored locally on your device (SwiftData on iOS, DataStore on Android) and are not transmitted to our servers.</li>
                     </ul>
 
                     <h2 class="text-xl font-medium text-dark pt-4">2. Legal Basis for Processing (GDPR)</h2>
@@ -169,15 +170,16 @@
                     <h2 class="text-xl font-medium text-dark pt-4">4. Third-Party Services &amp; Data Transfers</h2>
                     <p>The App uses the following third-party services:</p>
                     <ul class="list-disc pl-6 space-y-2">
-                        <li><strong>Apple App Store</strong> — for subscription management and payment processing.</li>
-                        <li><strong>Apple Push Notification Service</strong> — for delivering push notifications.</li>
-                        <li><strong>Anthropic, Inc.</strong> (San Francisco, USA) — for AI-powered resume tailoring. When you use the Resume Service, your resume text is transmitted to Anthropic's API for processing. Anthropic processes this data according to their <a href="https://www.anthropic.com/privacy" class="text-dark underline">Privacy Policy</a> and <a href="https://www.anthropic.com/api-usage-policy" class="text-dark underline">API Usage Policy</a>. Per Anthropic's commercial API terms, data submitted through the API is not used to train their models.</li>
+                        <li><strong>Apple App Store</strong> (iOS) and <strong>Google Play Billing</strong> (Android) — for purchase management and payment processing.</li>
+                        <li><strong>Apple Push Notification Service</strong> (iOS) and <strong>Firebase Cloud Messaging</strong> by Google (Android) — for delivering the job-alert notifications you opt in to.</li>
+                        <li><strong>Google AdMob</strong> (Android only) — for the optional rewarded video ads that unlock job details for non-Premium users. AdMob is operated by Google LLC (Mountain View, USA) and processes advertising identifiers and device data under the <a href="https://policies.google.com/privacy" class="text-dark underline">Google Privacy Policy</a>; consent is requested in the EU/EEA and UK before any ad is loaded.</li>
+                        <li><strong>DeepSeek</strong> (Hangzhou DeepSeek Artificial Intelligence Co., Ltd., China) — for AI-powered resume tailoring. When you use the Resume Service, the resume text you submit and the job description are transmitted to DeepSeek's API for processing according to the <a href="https://platform.deepseek.com/privacy" class="text-dark underline">DeepSeek Privacy Policy</a>. We send only the text needed for the tailoring request and no device identifiers.</li>
                     </ul>
-                    <p>Your resume data may be transferred to and processed in countries outside your country of residence, including the United States and the United Kingdom. By using the Resume Service, you explicitly consent to such international data transfers. Where required by applicable law, we rely on Standard Contractual Clauses (SCCs) or other approved transfer mechanisms.</p>
+                    <p>Your resume data may be transferred to and processed in countries outside your country of residence, including the United States, the United Kingdom and the People's Republic of China (DeepSeek). By using the Resume Service, you explicitly consent to such international data transfers. Where required by applicable law, we rely on Standard Contractual Clauses (SCCs) or other approved transfer mechanisms.</p>
                     <p>Job listings link to external websites. We are not responsible for the privacy practices of those websites.</p>
 
                     <h2 class="text-xl font-medium text-dark pt-4">5. Data Retention &amp; Deletion</h2>
-                    <p>Resume data and tailored versions are stored on our servers for as long as you choose to retain them. You may delete all your resume data at any time through the App's Resume tab (menu → Delete Resume). Upon deletion, all your resume data and tailored versions are permanently and irreversibly removed from our servers. Local data (favorites, preferences) remains on your device and is removed when you delete the App. The anonymous device identifier persists in your device's Keychain and may survive app deletion; you can reset it by resetting your device's Keychain.</p>
+                    <p>Resume data and tailored versions are stored on our servers for as long as you choose to retain them. You may delete all your resume data at any time through the App's Resume tab (menu → Delete Resume). Upon deletion, all your resume data and tailored versions are permanently and irreversibly removed from our servers. Local data (favorites, preferences) remains on your device and is removed when you delete the App. On iOS the anonymous device identifier persists in your device's Keychain and may survive app deletion; on Android it is removed together with the App. You can also ask us to delete everything associated with your device identifier by writing to the contact address below. AI-generated resumes can be reported from within the App (the flag button on the result screen), which opens an e-mail to us.</p>
 
                     <h2 class="text-xl font-medium text-dark pt-4">6. Your Rights</h2>
                     <p>Depending on your jurisdiction, you may have the following rights regarding your personal data:</p>
