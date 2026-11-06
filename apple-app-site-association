@@ -1,0 +1,19 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": [
+          "3R9CAB5MFA.ltd.truebloom.rental"
+        ],
+        "components": [
+          {
+            "/": "/r",
+            "comment": "Open Rental Inspection protected report QR links"
+          }
+        ]
+      }
+    ]
+  }
+}
+

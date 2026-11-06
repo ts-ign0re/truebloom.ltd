@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Open protected report — Rental Inspection</title>
+    <meta name="description" content="Open a protected Rental Inspection report packet and verify the trusted timestamp and evidence links on your device.">
+    <meta property="og:site_name" content="TrueBloom Ltd">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Open protected report — Rental Inspection">
+    <meta property="og:description" content="Open a protected Rental Inspection report packet and verify the trusted timestamp and evidence links on your device.">
+    <meta property="og:url" content="https://truebloom.ltd/r/">
+    <meta property="og:image" content="https://truebloom.ltd/assets/img/truebloom-watercolor-hero.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Open protected report — Rental Inspection">
+    <meta name="twitter:description" content="Open a protected Rental Inspection report packet and verify the trusted timestamp and evidence links on your device.">
+    <meta name="twitter:image" content="https://truebloom.ltd/assets/img/truebloom-watercolor-hero.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { ink: '#141f29', paper: '#f7f2e6', proof: '#f05a42' } } } }
+    </script>
+</head>
+<body class="min-h-screen bg-paper text-ink antialiased flex items-center justify-center p-6">
+    <main class="w-full max-w-lg rounded-3xl bg-white/80 border border-black/5 p-8 shadow-xl shadow-black/5">
+        <div class="w-12 h-12 rounded-full bg-proof mb-7"></div>
+        <p class="text-xs font-bold tracking-[0.18em] text-black/45 mb-3">RENTAL INSPECTION</p>
+        <h1 class="text-3xl font-black tracking-tight mb-4">Open protected report</h1>
+        <p id="message" class="text-black/60 leading-relaxed mb-8">This QR contains a protected report packet. Open it in Rental Inspection to verify the trusted timestamp and evidence links on your device.</p>
+        <div class="grid gap-3">
+            <a id="open-app" href="#" class="rounded-2xl bg-ink text-white text-center font-bold px-5 py-4">Open Rental Inspection</a>
+            <a href="../rental-inspection/" class="rounded-2xl border border-black/10 text-center font-semibold px-5 py-4">App support</a>
+        </div>
+        <p class="text-xs text-black/40 leading-relaxed mt-7">The packet is stored after the <code>#</code> in this address. URL fragments are not sent to this website, and the report is not stored here.</p>
+    </main>
+    <script>
+        const payload = window.location.hash.slice(1);
+        const valid = payload.startsWith('DPR1:') || payload.startsWith('DPL1:');
+        const button = document.getElementById('open-app');
+        if (valid) {
+            button.href = 'rentalinspection://verify#' + payload;
+        } else {
+            button.removeAttribute('href');
+            button.classList.add('opacity-40', 'pointer-events-none');
+            document.getElementById('message').textContent = 'This link does not contain a valid Rental Inspection protection packet.';
+        }
+    </script>
+</body>
+</html>
+
